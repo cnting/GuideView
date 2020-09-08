@@ -2,6 +2,7 @@ package easily.tech.guideview.lib;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class GuideViewFragment extends DialogFragment {
     private GuideViewBundle currentBundle;
     private GuideView currentGuideView;
     private boolean isShowing;
+    private DialogInterface.OnDismissListener onDismissListener;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,8 +57,8 @@ public class GuideViewFragment extends DialogFragment {
         }
         window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        if (!isShowing){
-            isShowing=true;
+        if (!isShowing) {
+            isShowing = true;
             showGuideView();
         }
     }
@@ -66,6 +68,10 @@ public class GuideViewFragment extends DialogFragment {
             return;
         }
         this.guideViewBundles = guideViewBundles;
+    }
+
+    public void setOnDismissListener(DialogInterface.OnDismissListener listener) {
+        this.onDismissListener = listener;
     }
 
 
@@ -143,8 +149,16 @@ public class GuideViewFragment extends DialogFragment {
                 currentBundle = null;
                 currentGuideView = null;
             }
-            isShowing=false;
+            isShowing = false;
             super.dismiss();
+        }
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+        if (onDismissListener != null) {
+            onDismissListener.onDismiss(dialog);
         }
     }
 
@@ -152,6 +166,7 @@ public class GuideViewFragment extends DialogFragment {
 
         private List<GuideViewBundle> guideViewBundles = new ArrayList<>();
         private boolean cancelable;
+        private DialogInterface.OnDismissListener onDismissListener;
 
         public Builder addGuidViewBundle(GuideViewBundle bundle) {
             if (bundle == null) {
@@ -166,10 +181,16 @@ public class GuideViewFragment extends DialogFragment {
             return this;
         }
 
+        public Builder setOnDismissListener(DialogInterface.OnDismissListener listener) {
+            this.onDismissListener = listener;
+            return this;
+        }
+
         public GuideViewFragment build() {
             GuideViewFragment fragment = new GuideViewFragment();
             fragment.setGuideViewBundles(guideViewBundles);
             fragment.setCancelable(cancelable);
+            fragment.setOnDismissListener(onDismissListener);
             return fragment;
         }
     }

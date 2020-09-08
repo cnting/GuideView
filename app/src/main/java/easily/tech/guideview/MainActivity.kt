@@ -2,6 +2,7 @@ package easily.tech.guideview
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -106,6 +107,9 @@ class MainActivity : AppCompatActivity() {
                             .setHintViewMargin(30,-30,30,0)
                             .build()
                     )
+                    .setOnDismissListener{
+                        Log.d("===>","dismiss")
+                    }
                     .build()
             guideViewFragment.show(supportFragmentManager, "hit")
         }
