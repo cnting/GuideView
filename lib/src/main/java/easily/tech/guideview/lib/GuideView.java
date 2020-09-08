@@ -166,22 +166,24 @@ final class GuideView extends RelativeLayout {
             case LEFT:
                 gravity = Gravity.END;
                 top = targetViewLocation[1] + bundle.getHintViewMarginTop();
-                right = screenWidth - targetViewLocation[0] + bundle.getHintViewMarginRight() + bundle.getTransparentSpaceLeft() ;
+                right = screenWidth - targetViewLocation[0] + bundle.getHintViewMarginRight() + bundle.getTransparentSpaceLeft();
                 break;
             case RIGHT:
                 gravity = Gravity.START;
                 top = targetViewLocation[1] + bundle.getHintViewMarginTop();
-                left = targetViewLocation[0] + targetViewWidth + bundle.getHintViewMarginLeft() + bundle.getTransparentSpaceRight() ;
+                left = targetViewLocation[0] + targetViewWidth + bundle.getHintViewMarginLeft() + bundle.getTransparentSpaceRight();
                 break;
             case TOP:
                 gravity = Gravity.BOTTOM;
                 bottom = viewHeight - targetViewLocation[1] + bundle.getHintViewMarginBottom() + bundle.getTransparentSpaceTop();
-                left = targetViewLocation[0] + bundle.getHintViewMarginLeft();
+                left = /*targetViewLocation[0] + */bundle.getHintViewMarginLeft();
+                right = bundle.getHintViewMarginRight();
                 break;
             case BOTTOM:
                 gravity = Gravity.TOP;
                 top = targetViewLocation[1] + targetViewHeight + bundle.getHintViewMarginTop() + bundle.getTransparentSpaceBottom() - extraHeight;
-                left = targetViewLocation[0] + bundle.getHintViewMarginLeft();
+                left = /*targetViewLocation[0] + */bundle.getHintViewMarginLeft();
+                right = bundle.getHintViewMarginRight();
                 break;
         }
         setGravity(gravity);
