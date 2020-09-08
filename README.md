@@ -2,6 +2,7 @@
 
 # FEATURE UPDATE ADD BY cnting
 * 在原作者基础上修改hint view 宽度问题
+* 添加onDissmissListener
 
 # FEATURE UPDATE
 * 在显示引导图的情况下，targetView可以设置支持点击。在这种情况下，dialogFragment的事件会被透传到targetView上，触发其原有的点击逻辑；
@@ -122,7 +123,7 @@ void onNext()
 
    ```groovy
    dependencies {
-   	compile 'com.github.easilycoder:GuideView:0.0.1'
+      implementation 'com.github.cnting:GuideView:Tag'
    }
    ```
 
