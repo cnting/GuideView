@@ -1,7 +1,9 @@
-[![](https://jitpack.io/v/easilycoder/GuideView.svg)](https://jitpack.io/#easilycoder/GuideView)
+[![](https://jitpack.io/v/cnting/GuideView.svg)](https://jitpack.io/#cnting/GuideView)
+
+# FEATURE UPDATE ADD BY cnting
+* 在原作者基础上修改hint view 宽度问题
 
 # FEATURE UPDATE
-
 * 在显示引导图的情况下，targetView可以设置支持点击。在这种情况下，dialogFragment的事件会被透传到targetView上，触发其原有的点击逻辑；
 
   ```Java
