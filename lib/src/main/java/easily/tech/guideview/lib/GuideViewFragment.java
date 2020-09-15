@@ -37,7 +37,7 @@ public class GuideViewFragment extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.GuideViewDialogStyle);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.GuideViewDialogStyle);
     }
 
     @Nullable

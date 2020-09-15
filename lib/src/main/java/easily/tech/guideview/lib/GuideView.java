@@ -10,7 +10,6 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
-import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -110,7 +109,7 @@ final class GuideView extends RelativeLayout {
         transparentPaint.setXfermode(mDrawMode);
         transparentPaint.setAntiAlias(true);
         if (bundle.isHasTransparentLayer()) {
-            int extraHeight = Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT ? Utils.getStatusBarHeight(getContext()) : 0;
+            int extraHeight = Utils.getStatusBarHeight(getContext());
             float left = targetViewLocation[0] - bundle.getTransparentSpaceLeft();
             float top = targetViewLocation[1] - bundle.getTransparentSpaceTop() - extraHeight;
             float right = targetViewLocation[0] + targetViewWidth + bundle.getTransparentSpaceRight();
@@ -161,7 +160,7 @@ final class GuideView extends RelativeLayout {
         int gravity = Gravity.TOP | Gravity.START;
         int viewHeight = decorView.getHeight();
         // below android 4.4,it can not set the status bar transparent,so we need the calculate the height of it to settle the hintView on correct position
-        int extraHeight = Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT ? Utils.getStatusBarHeight(getContext()) : 0;
+        int extraHeight = Utils.getStatusBarHeight(getContext());
         switch (bundle.getHintViewDirection()) {
             case LEFT:
                 gravity = Gravity.END;
@@ -200,6 +199,7 @@ final class GuideView extends RelativeLayout {
         View targetView = bundle.getTargetView();
         if (targetView.getWidth() > 0 && targetView.getHeight() > 0) {
             targetView.getLocationInWindow(targetViewLocation);
+
             targetViewWidth = targetView.getWidth();
             targetViewHeight = targetView.getHeight();
             if (targetViewLocation[0] >= 0 && targetViewLocation[1] > 0) {

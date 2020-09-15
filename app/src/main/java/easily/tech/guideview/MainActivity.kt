@@ -104,11 +104,11 @@ class MainActivity : AppCompatActivity() {
                             .setTargetView(menuMore.actionView)
                             .setHintView(hintViewLeft)
                             .setHintViewDirection(BOTTOM)
-                            .setHintViewMargin(30,-30,30,0)
+                            .setHintViewMargin(30, -30, 30, 0)
                             .build()
                     )
-                    .setOnDismissListener{
-                        Log.d("===>","dismiss")
+                    .setOnDismissListener {
+                        Log.d("===>", "dismiss")
                     }
                     .build()
             guideViewFragment.show(supportFragmentManager, "hit")
