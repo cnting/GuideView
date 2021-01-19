@@ -1,8 +1,11 @@
 [![](https://jitpack.io/v/cnting/GuideView.svg)](https://jitpack.io/#cnting/GuideView)
 
+
 # FEATURE UPDATE ADD BY cnting
 * 在原作者基础上修改hint view 宽度问题
 * 添加onDissmissListener
+* 全面屏适配
+* 如果需要在MenuItem上使用，可以通过设置MenuItem的`actionView`，或者`toolbar.findViewById(menu.id)`的方式获取view
 
 # FEATURE UPDATE
 * 在显示引导图的情况下，targetView可以设置支持点击。在这种情况下，dialogFragment的事件会被透传到targetView上，触发其原有的点击逻辑；
