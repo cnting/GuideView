@@ -112,6 +112,8 @@ class MainActivity : AppCompatActivity() {
                     }
                     .build()
             guideViewFragment.show(supportFragmentManager, "hit")
+
+
         }
     }
 

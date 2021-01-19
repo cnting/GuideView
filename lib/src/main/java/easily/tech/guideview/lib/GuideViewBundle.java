@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+
 import static easily.tech.guideview.lib.GuideViewBundle.TransparentOutline.TYPE_OVAL;
 
 /**
@@ -166,7 +167,7 @@ public class GuideViewBundle {
         private GuideViewHideListener guideViewHideListener;
 
 
-        private boolean isDismissOnClickTargetView=true;
+        private boolean isDismissOnClickTargetView = true;
 
         private boolean isTargetViewClickable;
 
@@ -241,7 +242,6 @@ public class GuideViewBundle {
             isDismissOnClickTargetView = dismissOnTouchInTargetView;
             return this;
         }
-
 
 
         public Builder condition(boolean condition) {
