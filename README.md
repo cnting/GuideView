@@ -1,5 +1,8 @@
 [![](https://jitpack.io/v/cnting/GuideView.svg)](https://jitpack.io/#cnting/GuideView)
 
+# 接入方法
+
+`implementation 'com.github.cnting:GuideView:0.0.9'`
 
 # FEATURE UPDATE ADD BY cnting
 * 在原作者基础上修改hint view 宽度问题
