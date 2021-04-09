@@ -11,7 +11,6 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -99,13 +98,9 @@ final class GuideView extends RelativeLayout {
     private void drawBackGround(Canvas canvas) {
         Bitmap bitmap;
         //先绘制遮罩层
-        if (canvas.getWidth() == 0 || canvas.getHeight() == 0) {
-            bitmap = Bitmap.createBitmap(screenWidth, screenHeight, Bitmap.Config.ARGB_8888);
-        } else {
-            bitmap = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);
-        }
+        bitmap = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas backGround = new Canvas(bitmap);
-        backGround.drawRect(0, 0, screenWidth, screenHeight, backgroundPaint);
+        backGround.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), backgroundPaint);
         PorterDuffXfermode mDrawMode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
         transparentPaint.setXfermode(mDrawMode);
         transparentPaint.setAntiAlias(true);

@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -135,7 +134,7 @@ public class GuideViewFragment extends DialogFragment {
                 }
             }
         });
-        flContainer.addView(guideView);
+        flContainer.addView(guideView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         guideView.show();
         currentGuideView = guideView;
     }
