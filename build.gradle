@@ -2,13 +2,13 @@
 apply from: 'jitpack-publish.gradle'
 
 buildscript {
-    ext.kotlin_version = '1.2.31'
+    ext.kotlin_version = '1.4.32'
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.1'
+        classpath 'com.android.tools.build:gradle:4.1.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // add JitPack dependencies
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'

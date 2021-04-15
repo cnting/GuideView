@@ -98,9 +98,9 @@ final class GuideView extends RelativeLayout {
     private void drawBackGround(Canvas canvas) {
         Bitmap bitmap;
         //先绘制遮罩层
-        bitmap = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);
+        bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
         Canvas backGround = new Canvas(bitmap);
-        backGround.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), backgroundPaint);
+        backGround.drawRect(0, 0, getWidth(), getHeight(), backgroundPaint);
         PorterDuffXfermode mDrawMode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
         transparentPaint.setXfermode(mDrawMode);
         transparentPaint.setAntiAlias(true);
@@ -133,7 +133,7 @@ final class GuideView extends RelativeLayout {
         int xAxis = (int) ev.getRawX();
         View targetView = bundle.getTargetView();
         int[] location = new int[2];
-        targetView.getLocationOnScreen(location);
+        targetView.getLocationInWindow(location);
         int left = location[0];
         int top = location[1];
         int right = left + targetView.getMeasuredWidth();
@@ -195,7 +195,6 @@ final class GuideView extends RelativeLayout {
         View targetView = bundle.getTargetView();
         if (targetView.getWidth() > 0 && targetView.getHeight() > 0) {
             targetView.getLocationInWindow(targetViewLocation);
-
             targetViewWidth = targetView.getWidth();
             targetViewHeight = targetView.getHeight();
             if (targetViewLocation[0] >= 0 && targetViewLocation[1] > 0) {
